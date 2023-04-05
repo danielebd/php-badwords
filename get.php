@@ -1,8 +1,13 @@
 <?php
-$bad_words = array(
-    'Daniele' => '***',
-    'Balestro' => '***'
-);
+var_dump($_GET);
+
+
+$bad_words = $_GET['badwords'];
+$text = $_GET['paragraph'];
+
+$text_clean = str_replace($bad_words, '***', $text);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,8 +19,8 @@ $bad_words = array(
     <title>preso</title>
 </head>
 <body>
-    <div><?php echo $_GET['word'] ?> <?php echo strlen($_GET['word'])?></div>
-    <div><?php echo strtr($_GET['word'], $bad_words)?>
-    lunghezza frase <?php echo strlen($_GET['word'])?> </div>
+    <div>Testo: <?php echo $text?>. Lunghezza: <?php echo strlen($text)?></div>
+    <div>Testo: <?php echo $text_clean?>. Lunghezza: <?php echo strlen($text_clean)?></div>
+
 </body>
 </html>
